@@ -1,4 +1,4 @@
-package org.aibles.agilepmtool.domain;
+package org.aibles.agilepmtool.project.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -18,7 +18,7 @@ public class Project implements Serializable {
     @Column(name = "project_name")
     private String projectName;
 
-    @Column(name = "project_identifier")
+    @Column(name = "project_identifier", updatable = false, unique = true)
     private String projectIdentifier;
 
     @Column(name = "description")
