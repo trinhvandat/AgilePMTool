@@ -3,6 +3,8 @@ package org.aibles.agilepmtool.project.domain;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -16,12 +18,16 @@ public class Project implements Serializable {
     private Long id;
 
     @Column(name = "project_name")
+    @NotBlank(message = "Project name is required.")
     private String projectName;
 
     @Column(name = "project_identifier", updatable = false, unique = true)
+    @NotBlank(message = "Project identifier is required.")
+    @Size(min = 4, max = 5, message = "Project identifier must have 4 or 5 characters.")
     private String projectIdentifier;
 
     @Column(name = "description")
+    @NotBlank(message = "Project description is required.")
     private String description;
 
     @Column(name = "start_date")

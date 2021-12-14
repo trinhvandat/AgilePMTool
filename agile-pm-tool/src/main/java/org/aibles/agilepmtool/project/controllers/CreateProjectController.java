@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import javax.validation.Valid;
+
 @RestControllerAdvice
 @RequestMapping("/" + RestApiConstant.API + "/" + RestApiConstant.VERSION + "/" + RestApiConstant.PROJECT_RESOURCE)
 @RequiredArgsConstructor
@@ -19,7 +21,7 @@ public class CreateProjectController {
     private final CreateProjectService createProjectService;
 
     @PostMapping
-    public ResponseEntity<Project> createProject(@RequestBody Project project){
+    public ResponseEntity<Project> createProject(@Valid @RequestBody Project project){
         return new ResponseEntity<>(createProjectService.execute(project), HttpStatus.OK);
     }
 }
