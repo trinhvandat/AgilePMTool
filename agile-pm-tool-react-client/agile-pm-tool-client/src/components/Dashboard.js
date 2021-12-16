@@ -15,6 +15,7 @@ export class Dashboard extends Component {
                             </a>
                             <hr />
                             <br />
+                            <ProjectItem />
                         </div>
                     </div>
                 </div>
